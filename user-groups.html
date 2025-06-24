@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Skills Connect Megamenu – Option B</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        /* reset & box-sizing */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: "Open Sans", sans-serif;
+            color: #333;
+        }
+
+        /* NAV BAR */
+        nav {
+            display: flex;
+            align-items: center;
+            padding: 1 2em;
+            background: #fff;
+            border-bottom: 1px solid #13301b;
+            position: relative;
+        }
+        .site-logo {
+            display: inline-block;
+            padding-left: 40px;
+        }
+        .site-logo img {
+            height: 40px;
+            width: auto;
+        }
+        .main-nav {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            margin: 1em 0;
+            padding: 0;
+            list-style: none;
+            z-index: 2;
+        }
+        .main-nav li {
+            position: relative;
+        }
+        .main-nav a {
+            position: relative;
+            display: block;
+            padding: 1em 1.5em;
+            color: #13301b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .main-nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -1em;
+            height: 0;
+            background: #0a8832;
+            transition: height .2s;
+        }
+        .main-nav a:hover::after {
+            height: 1px;
+        }
+        .main-nav a::before {
+            content: "▼";
+            margin-right: .4em;
+            transition: transform .2s;
+            font-size: .8em;
+            vertical-align: middle;
+            color: inherit;
+        }
+        .main-nav li.open > a::before {
+            content: "▲";
+        }
+
+        /* hide templates */
+        nav template {
+            display: none;
+        }
+
+        /* single mega-container */
+        .mega-container {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 350px;
+            background: #fff;
+            border-top: 1px solid #0a8832;
+            border-bottom: 1px solid #0a8832;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            display: none;
+            overflow-y: auto;
+            z-index: 1;
+        }
+
+        /* layout */
+        .mega-content {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            height: 100%;
+            width: calc(100% - 4em);
+            margin: 0;
+        }
+
+        /* left panel */
+        .mega-left {
+            background: #f6f6f5;
+            padding: 2em;
+            border-right: 1px solid #0a8832;
+            height: 100%;
+        }
+        .mega-left h3 {
+            margin: 0;
+            font-size: 1.1em;
+            color: #13301b;
+        }
+        .mega-left p {
+            margin: .5em 0 0;
+            font-size: .95em;
+            color: #333;
+        }
+
+        /* right grid: 4 items tall, max 3 columns */
+        .mega-grid {
+            display: grid;
+            grid-auto-flow: column;
+            grid-template-rows: repeat(4, auto);
+            grid-auto-columns: minmax(0, 1fr);
+            gap: 1em 2em;
+            padding: 2em;
+            align-content: start;
+        }
+        .mega-item {
+            color: inherit;
+            font-size: 1em;
+            text-decoration: none;
+        }
+        .mega-item h4 {
+            margin: 0;
+            font-size: 1.05em;
+            font-weight: bold;
+        }
+        .mega-item p {
+            display: none;
+        }
+        .mega-item:hover h4,
+        .mega-item:focus h4 {
+            text-decoration: underline;
+            outline: none;
+        }
+
+        /* responsive */
+        @media (max-width: 1024px) {
+            .mega-container {
+                position: static;
+                height: auto;
+                box-shadow: none;
+            }
+            .mega-content {
+                display: flex;
+                flex-direction: column;
+            }
+            .mega-grid {
+                display: flex;
+                flex-direction: column;
+                gap: .5em;
+                padding: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <!-- Logo on the left -->
+        <a href="https://www.skillsconnect.org.uk" class="site-logo">
+            <img src="https://www.skillsconnect.org.uk/wp-content/uploads/2023/05/logo.svg"
+                 alt="Skills Connect logo">
+        </a>
+
+        <ul class="main-nav">
+
+            <!-- For Individuals -->
+            <li data-menu="individuals">
+                <a href="#">For Individuals</a>
+                <template>
+                    <div class="mega-left">
+                        <h3>For Individuals</h3>
+                        <p>Services and support tailored just for you</p>
+                    </div>
+                    <div class="mega-grid">
+                        <a href="#" class="mega-item" data-desc="Search our course directory to find the right training for you">
+                            <h4>Find training &amp; courses</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="One-to-one coaching to help you progress in your current role">
+                            <h4>Career coaching</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Guidance for young people not in work, education or training">
+                            <h4>Advice for young people</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Browse current job vacancies and apprenticeships">
+                            <h4>Jobs &amp; apprenticeships</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Discover upcoming career events and workshops">
+                            <h4>Events</h4>
+                            <p>…</p>
+                        </a>
+                    </div>
+                </template>
+            </li>
+
+            <!-- For Providers -->
+            <li data-menu="providers">
+                <a href="#">For Providers</a>
+                <template>
+                    <div class="mega-left">
+                        <h3>For Providers</h3>
+                        <p>Tools and resources for training organisations</p>
+                    </div>
+                    <div class="mega-grid">
+                        <a href="#" class="mega-item" data-desc="Add your courses to our public directory">
+                            <h4>List your courses</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Learn about funding and partnership opportunities">
+                            <h4>Funding &amp; partnerships</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Access best-practice standards and accreditation info">
+                            <h4>Quality standards</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Download support materials and templates for providers">
+                            <h4>Provider resources</h4>
+                            <p>…</p>
+                        </a>
+                    </div>
+                </template>
+            </li>
+
+            <!-- For Employers -->
+            <li data-menu="employers">
+                <a href="#">For Employers</a>
+                <template>
+                    <div class="mega-left">
+                        <h3>For Employers</h3>
+                        <p>Help find and develop the talent you need</p>
+                    </div>
+                    <div class="mega-grid">
+                        <a href="#" class="mega-item" data-desc="Post job openings and reach local candidates">
+                            <h4>Post job vacancies</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Learn how to design and fund apprenticeships">
+                            <h4>Hire apprentices</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Set up work-experience and placement programmes">
+                            <h4>Work experience</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Partner with us on skills and training projects">
+                            <h4>Employer partnerships</h4>
+                            <p>…</p>
+                        </a>
+                    </div>
+                </template>
+            </li>
+
+            <!-- For Schools -->
+            <li data-menu="schools">
+                <a href="#">For Schools</a>
+                <template>
+                    <div class="mega-left">
+                        <h3>For Schools</h3>
+                        <p>Careers support and resources for educators</p>
+                    </div>
+                    <div class="mega-grid">
+                        <a href="#" class="mega-item" data-desc="Book assemblies, workshops, and school visits">
+                            <h4>Careers hub services</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Download lesson plans and teaching materials">
+                            <h4>Teacher resources</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Help parents support their children’s choices">
+                            <h4>Parental engagement</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="View local labour market data and trends">
+                            <h4>Labour market insights</h4>
+                            <p>…</p>
+                        </a>
+                    </div>
+                </template>
+            </li>
+
+            <!-- Explore Careers -->
+            <li data-menu="careers">
+                <a href="#">Explore Careers</a>
+                <template>
+                    <div class="mega-left">
+                        <h3>Explore Careers</h3>
+                        <p>Research and plan your future pathway</p>
+                    </div>
+                    <div class="mega-grid">
+                        <a href="#" class="mega-item" data-desc="Browse by role, sector or skillset">
+                            <h4>Choose a career path</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="In-depth reports on every major sector">
+                            <h4>Sector insights</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="See how to get started in green industries">
+                            <h4>Green skills</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Step-by-step guides to becoming your dream professional">
+                            <h4>How-to guides</h4>
+                            <p>…</p>
+                        </a>
+                    </div>
+                </template>
+            </li>
+
+            <!-- Speak to us -->
+            <li data-menu="speak">
+                <a href="#">Speak to us</a>
+                <template>
+                    <div class="mega-left">
+                        <h3>Speak to us</h3>
+                        <p>Not sure where to start? Get in touch or book an event</p>
+                    </div>
+                    <div class="mega-grid">
+                        <a href="#" class="mega-item" data-desc="Get one-to-one advice from our experts">
+                            <h4>Contact an advisor</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="See what’s happening in your area">
+                            <h4>Attend an event</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Submit feedback or ask a question">
+                            <h4>Send us a message</h4>
+                            <p>…</p>
+                        </a>
+                    </div>
+                </template>
+            </li>
+
+        </ul>
+
+        <!-- single fixed container -->
+        <div class="mega-container">
+            <div class="mega-content"></div>
+        </div>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.querySelector('nav');
+            const items = nav.querySelectorAll('.main-nav li');
+            const container = nav.querySelector('.mega-container');
+            const content = container.querySelector('.mega-content');
+
+            items.forEach(li => {
+                const a = li.querySelector('a');
+                a.addEventListener('click', e => {
+                    e.preventDefault();
+                    const isOpen = li.classList.toggle('open');
+                    items.forEach(other => {
+                        if (other !== li) other.classList.remove('open');
+                    });
+                    if (isOpen) {
+                        content.innerHTML = li.querySelector('template').innerHTML;
+                        container.style.display = 'block';
+                        bindHoverSwap();
+                    } else {
+                        container.style.display = 'none';
+                    }
+                });
+            });
+
+            document.addEventListener('click', e => {
+                if (!nav.contains(e.target)) {
+                    items.forEach(li => li.classList.remove('open'));
+                    container.style.display = 'none';
+                }
+            });
+
+            function bindHoverSwap() {
+                const leftCopy = content.querySelector('.mega-left p');
+                const defaultTxt = leftCopy.textContent;
+                content.querySelectorAll('.mega-item[data-desc]').forEach(el => {
+                    const d = el.getAttribute('data-desc');
+                    ['mouseenter', 'focus'].forEach(evt =>
+                        el.addEventListener(evt, () => leftCopy.textContent = d)
+                    );
+                    ['mouseleave', 'blur'].forEach(evt =>
+                        el.addEventListener(evt, () => leftCopy.textContent = defaultTxt)
+                    );
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

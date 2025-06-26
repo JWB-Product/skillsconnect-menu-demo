@@ -1,12 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <title>Skills Connect Megamenu - Blank page</title>
-  
-  <head><!-- Hotjar Tracking Code for User testing -->
-<script>
+  <meta charset="UTF-8" />
+  <title>Skills Connect Menu Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Open Sans", sans-serif;
+      background-color: #fff;
+      color: #13301B;
+      line-height: 1.6;
+      padding: 2em;
+    }
+
+    header {
+      max-width: 900px;
+      margin: 0 auto 2em;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: Avenir, "Open Sans", sans-serif;
+      font-size: 2rem;
+      margin-bottom: 0.5em;
+    }
+
+    header p {
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .link-blocks {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+      max-width: 700px;
+      margin: 2em auto;
+    }
+
+    .link-blocks a {
+      display: block;
+      background-color: #f6f6f5;
+      padding: 1em 1.5em;
+      border-left: 4px solid #13301B;
+      text-decoration: none;
+      font-weight: 600;
+      color: #13301B;
+      transition: background-color 0.2s;
+    }
+
+    .link-blocks a:hover {
+      background-color: #e2e2e0;
+    }
+
+    .iframe-wrapper {
+      max-width: 900px;
+      margin: 3em auto;
+    }
+
+    iframe {
+      width: 100%;
+      height: 1000px;
+      border: none;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      iframe {
+        height: 1400px;
+      }
+    }
+  </style>
+
+  <!-- Hotjar Tracking Code for User testing -->
+  <script>
     (function(h,o,t,j,a,r){
         h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
         h._hjSettings={hjid:6445527,hjsv:6};
@@ -15,9 +88,28 @@
         r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
         a.appendChild(r);
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-
+  </script>
 </head>
+<body>
 
-<body>This is a blank page.</body>
+  <header>
+    <h1>Skills Connect menu structure test</h1>
+    <p>
+      Please explore both versions of the navigation menu below. Then answer a few quick questions to help us improve the site.
+    </p>
+  </header>
+
+  <section class="link-blocks">
+    <a href="lifelong-learning.html" target="_blank" rel="noopener">🔍 Version A – Lifelong Learning Structure</a>
+    <a href="user-groups.html" target="_blank" rel="noopener">🧭 Version B – User Group Structure</a>
+  </section>
+
+  <div class="iframe-wrapper">
+    <!-- Replace this with your MS Forms embed link -->
+    <iframe src="https://forms.office.com/Pages/ResponsePage.aspx?YOUR-FORM-URL-HERE" title="Skills Connect Test Form">
+      Your browser does not support iframes.
+    </iframe>
+  </div>
+
+</body>
 </html>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Skills Connect Megamenu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Hotjar Tracking Code for User testing -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:6445527,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    
+    <style>
+
+                h5 { padding-left: 20px; color: orangered; }
+        /* reset & box-sizing */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: "Open Sans", sans-serif
+        }
+
+        /* NAV BAR */
+nav {
+  display: flex;
+  align-items: center;
+  padding: 1 2em;
+  background: #fff;
+  border-bottom: 1px solid #13301b;
+  position: relative;
+}
+
+.main-nav {
+  display: flex;
+  flex: 1;                /* take remaining space */
+  justify-content: center;
+  margin: 1em 0;
+  padding: 0;
+  list-style: none;
+  z-index: 2;
+}
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav a {
+            position: relative;
+            display: block;
+            padding: 1em 1.5em;
+            color: #13301B;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* hover underline */
+        .main-nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -1em;
+            height: 0;
+            background: #0a8832;
+            transition: height .2s;
+        }
+
+        .main-nav a:hover::after {
+            height: 1px;
+        }
+
+        /* chevrons */
+        .main-nav a::before {
+            content: "▼";
+            margin-right: .4em;
+            transition: transform .2s;
+            font-size: .8em;
+            vertical-align: middle;
+        }
+
+        .main-nav li.open>a::before {
+            content: "▲";
+        }
+
+        /* hide templates */
+        nav template {
+            display: none
+        }
+
+        /* single container */
+        .mega-container {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 350px;
+            background: #fff;
+            border-top: 1px solid #0a8832;
+            border-bottom: 1px solid #0a8832;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            display: none;
+            overflow-y: auto;
+            z-index: 1;
+        }
+
+        /* layout */
+        .mega-content {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            height: 100%;
+            width: calc(100% - 4em);
+            margin: 0 0;
+        }
+
+        /* left panel */
+        .mega-left {
+            background: #f6f6f5;
+            padding: 2em;
+            border-right: 1px solid #0a8832;
+            height: 100%;
+        }
+
+        .mega-left h3 {
+            margin: 0;
+            font-size: 1.1em;
+            color: #13301b;
+        }
+
+        .mega-left h3 a {
+            color: #13301b !important;
+            text-decoration: none;
+        }
+
+        .mega-left h3 a:hover {
+            text-decoration: underline;
+        }
+
+        
+
+
+
+        .mega-left p {
+            margin: .5em 0 0;
+            font-size: .95em;
+            color: #333
+        }
+
+        /* right grid: 4 items tall, max 3 columns */
+        .mega-grid {
+            display: grid;
+            grid-auto-flow: column;
+            grid-template-rows: repeat(4, auto);
+            grid-auto-columns: minmax(0, 1fr);
+            gap: 1em 2em;
+            padding: 2em;
+            align-content: start;
+        }
+
+        .mega-item {
+            color: inherit;
+            font-size: 1em;
+            text-decoration: none;
+        }
+
+        .mega-item h4 {
+            margin: 0;
+            font-size: 1.05em;
+            font-weight: bold;
+        }
+
+        .mega-item p {
+            display: none
+        }
+
+        .mega-item:hover h4,
+        .mega-item:focus h4 {
+            text-decoration: underline;
+            outline: none;
+        }
+
+        /* responsive */
+        @media (max-width: 1024px) {
+            .mega-container {
+                position: static;
+                height: auto;
+                box-shadow: none
+            }
+
+            .mega-content {
+                display: flex;
+                flex-direction: column
+            }
+
+            .mega-grid {
+                display: flex;
+                flex-direction: column;
+                gap: .5em;
+                padding: 1em
+            }
+        }
+
+
+.site-logo {
+  display: inline-block;
+padding-left: 40px;
+}
+
+.site-logo img {
+  height: 40px;           /* adjust to your desired logo height */
+  width: auto;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+  <!-- Logo on the left -->
+  <a href="https://www.skillsconnect.org.uk" class="site-logo">
+    <img src="https://www.skillsconnect.org.uk/wp-content/uploads/2023/05/logo.svg"
+         alt="Skills Connect logo">
+  </a>
+
+        <ul class="main-nav">
+            <!-- Prepare for work -->
+            <li data-menu="prepare">
+                <a href="#">Prepare for work</a>
+                <template>
+                    <div class="mega-left">
+                        <h3><a href="https://www.skillsconnect.org.uk/draft-find-your-direction/">Prepare for work</a></h3>
+                        <p>Access information to prepare you for work.</p>
+                    </div>
+                    <div class="mega-grid">
+                        <a href="#" class="mega-item">
+                            <h4>Explore careers and industries</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item">
+                            <h4>Choose your route to work</h4>
+                            <p></p>
+                        </a>
+                        <a href="#" class="mega-item">
+                            <h4>Explore first steps after education</h4>
+                            <p></p>
+                        </a>
+                        <a href="#" class="mega-item">
+                            <h4>Find resources for schools and educators</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item">
+                            <h4>Find information for parents and carers</h4>
+                            <p>…</p>
+                        </a>
+                    </div>
+                </template>
+            </li>
+            <!-- Get support and training -->
+            <li data-menu="support">
+                <a href="#">Get support and training</a>
+                <template>
+                    <div class="mega-left">
+                        <h3>Get support and training</h3>
+                        <p>Find training or advice to help you enter or progress within work</p>
+                    </div>
+                    <div class="mega-grid">
+                        <a href="#" class="mega-item">
+                            <h4>Search for training providers and courses</h4>
+                            <p></p>
+                        </a>
+                        <a href="#" class="mega-item">
+                            <h4>Talk to a careers advisor for free</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item">
+                            <h4>Get redundancy support</h4>
+                            <p></p>
+                        </a>
+                    </div>
+                </template>
+            </li>
+            <!-- Find jobs and opportunities -->
+            <li data-menu="jobs">
+                <a href="#">Find jobs and opportunities</a>
+                <template>
+                    <div class="mega-left">
+                        <h3>Find jobs and opportunities</h3>
+                        <p>Find jobs and opportunities</p>
+                    </div>
+                    <div class="mega-grid">
+                        <a href="#" class="mega-item">
+                            <h4>Search for jobs and vacancies</h4>
+                            <p></p>
+                        </a>
+                        <a href="#" class="mega-item">
+                            <h4>Apply for apprenticeships</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item">
+                            <h4>Find internships and placements</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item">
+                            <h4>Businesses - upskill your workforce</h4>
+                            <p></p>
+                        </a>
+                    </div>
+                </template>
+            </li>
+            <!-- Learn and progress -->
+            <li data-menu="learn">
+                <a href="#">Learn and progress</a>
+                <template>
+                    <div class="mega-left">
+                        <h3>Learn and progress</h3>
+                        <p>Build your skills to grow  or change in your career</p>
+                    </div>
+                    <div class="mega-grid">
+                        <a href="#" class="mega-item">
+                            <h4>Search for training providers and courses</h4>
+                            <p></p>
+                        </a>
+                        <a href="#" class="mega-item">
+                            <h4>Get support to move into work from Skills Connect</h4>
+                            <p></p>
+                        </a>
+                        <a href="#" class="mega-item">
+                            <h4>Progress or change careers with free Skills Bootcamps training</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item">
+                            <h4>Get support to progress or change career - Future Bright</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item">
+                            <h4>Learn new skills with flexible adult education</h4>
+                            <p>…</p>
+                        </a>
+
+                        <a href="#" class="mega-item">
+                            <h4>Find training support for your business</h4>
+                            <p></p>
+                        </a>
+                    </div>
+                </template>
+            </li>
+            <!-- Access wellbeing support -->
+            <li data-menu="wellbeing">
+                <a href="#">Access wellbeing support</a>
+                <template>
+                    <div class="mega-left">
+                        <h3>Access wellbeing support</h3>
+                        <p>Look after your wellbeing and overcome barriers to learning and work.</p>
+                    </div>
+                    <div class="mega-grid">
+                        <a href="#" class="mega-item">
+                            <h4>Access health and wellbeing support</h4>
+                            <p>…</p>
+                        </a>
+
+                        <a href="#" class="mega-item">
+                            <h4>Find resources for schools and educators</h4>
+                            <p>…</p>
+                        </a>
+
+                        <a href="#" class="mega-item">
+                            <h4>Get information for parents and carers</h4>
+                            <p>…</p>
+                        </a>
+
+                        <a href="#" class="mega-item">
+                            <h4>Access redudancy support</h4>
+                            <p></p>
+                        </a>
+                    </div>
+                </template>
+            </li>
+            <li style="position: relative; display: flex; align-items: center;">
+                <button class="contact-btn" style="background-color: #520C71; color: #fff; border: 0; padding: 1em 1.5em; font-weight: 700; font-size: 16px; text-align: center; line-height: 1; -webkit-transition: all 0.7s; transition: all 0.7s; cursor: pointer; text-decoration: none; display: block;">Contact us</button>
+            </li>
+        </ul>
+
+        <!-- single fixed container -->
+        <div class="mega-container">
+            <div class="mega-content"></div>
+        </div>
+
+
+    </nav>
+
+            <div class="body>
+            <div class="body-content"><h5>This is the updated prototype.</h5></div>
+        </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.querySelector('nav');
+            const items = nav.querySelectorAll('.main-nav li');
+            const container = nav.querySelector('.mega-container');
+            const content = container.querySelector('.mega-content');
+
+            // open/close logic
+            items.forEach(li => {
+                const a = li.querySelector('a');
+                a.addEventListener('click', e => {
+                    e.preventDefault();
+                    const isOpen = li.classList.toggle('open');
+                    // close others
+                    items.forEach(other => {
+                        if (other !== li) other.classList.remove('open');
+                    });
+                    if (isOpen) {
+                        content.innerHTML = li.querySelector('template').innerHTML;
+                        container.style.display = 'block';
+                    } else {
+                        container.style.display = 'none';
+                    }
+                });
+            });
+
+            // click outside closes
+            document.addEventListener('click', e => {
+                if (!nav.contains(e.target)) {
+                    items.forEach(li => li.classList.remove('open'));
+                    container.style.display = 'none';
+                }
+            });
+
+            // dynamic left copy
+            function bindHoverSwap() {
+                const leftCopy = content.querySelector('.mega-left p');
+                const defaultTxt = leftCopy.textContent;
+                // hover-to-swap feature removed; data-desc attributes and handlers deleted
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Skills Connect Megamenu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Hotjar Tracking Code for User testing -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:6445527,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    
+    <style>
+
+                h5 { padding-left: 20px; color: orangered; }
+        /* reset & box-sizing */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font-family: "Open Sans", sans-serif
+        }
+
+        /* NAV BAR */
+nav {
+  display: flex;
+  align-items: center;
+  padding: 1 2em;
+  background: #fff;
+  border-bottom: 1px solid #13301b;
+  position: relative;
+}
+
+.main-nav {
+  display: flex;
+  flex: 1;                /* take remaining space */
+  justify-content: center;
+  margin: 1em 0;
+  padding: 0;
+  list-style: none;
+  z-index: 2;
+}
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav a {
+            position: relative;
+            display: block;
+            padding: 1em 1.5em;
+            color: #13301B;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* hover underline */
+        .main-nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -1em;
+            height: 0;
+            background: #0a8832;
+            transition: height .2s;
+        }
+
+        .main-nav a:hover::after {
+            height: 1px;
+        }
+
+        /* chevrons */
+        .main-nav a::before {
+            content: "▼";
+            margin-right: .4em;
+            transition: transform .2s;
+            font-size: .8em;
+            vertical-align: middle;
+        }
+
+        .main-nav li.open>a::before {
+            content: "▲";
+        }
+
+        /* hide templates */
+        nav template {
+            display: none
+        }
+
+        /* single container */
+        .mega-container {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 350px;
+            background: #fff;
+            border-top: 1px solid #0a8832;
+            border-bottom: 1px solid #0a8832;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            display: none;
+            overflow-y: auto;
+            z-index: 1;
+        }
+
+        /* layout */
+        .mega-content {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            height: 100%;
+            width: calc(100% - 4em);
+            margin: 0 0;
+        }
+
+        /* left panel */
+        .mega-left {
+            background: #f6f6f5;
+            padding: 2em;
+            border-right: 1px solid #0a8832;
+            height: 100%;
+        }
+
+        .mega-left h3 {
+            margin: 0;
+            font-size: 1.1em;
+            color: #13301b;
+        }
+
+        .mega-left h3 a {
+            color: #13301b !important;
+            text-decoration: none;
+        }
+
+        .mega-left h3 a:hover {
+            text-decoration: underline;
+        }
+
+        
+
+
+
+        .mega-left p {
+            margin: .5em 0 0;
+            font-size: .95em;
+            color: #333
+        }
+
+        /* right grid: 4 items tall, max 3 columns */
+        .mega-grid {
+            display: grid;
+            grid-auto-flow: column;
+            grid-template-rows: repeat(4, auto);
+            grid-auto-columns: minmax(0, 1fr);
+            gap: 1em 2em;
+            padding: 2em;
+            align-content: start;
+        }
+
+        .mega-item {
+            color: inherit;
+            font-size: 1em;
+            text-decoration: none;
+        }
+
+        .mega-item h4 {
+            margin: 0;
+            font-size: 1.05em;
+            font-weight: bold;
+        }
+
+        .mega-item p {
+            display: none
+        }
+
+        .mega-item:hover h4,
+        .mega-item:focus h4 {
+            text-decoration: underline;
+            outline: none;
+        }
+
+        /* responsive */
+        @media (max-width: 1024px) {
+            .mega-container {
+                position: static;
+                height: auto;
+                box-shadow: none
+            }
+
+            .mega-content {
+                display: flex;
+                flex-direction: column
+            }
+
+            .mega-grid {
+                display: flex;
+                flex-direction: column;
+                gap: .5em;
+                padding: 1em
+            }
+        }
+
+
+.site-logo {
+  display: inline-block;
+padding-left: 40px;
+}
+
+.site-logo img {
+  height: 40px;           /* adjust to your desired logo height */
+  width: auto;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+  <!-- Logo on the left -->
+  <a href="https://www.skillsconnect.org.uk" class="site-logo">
+    <img src="https://www.skillsconnect.org.uk/wp-content/uploads/2023/05/logo.svg"
+         alt="Skills Connect logo">
+  </a>
+
+        <ul class="main-nav">
+            <!-- Find your direction -->
+            <li data-menu="direction">
+                <a href="#">Find your direction</a>
+                <template>
+                    <div class="mega-left">
+                        <h3><a href="https://www.skillsconnect.org.uk/draft-find-your-direction/">Find your direction</a></h3>
+                        <p>Unlock your potential and explore new directions in learning and work</p>
+                    </div>
+                    <div class="mega-grid">
+                        <a href="https://www.skillsconnect.org.uk/career-insights/" class="mega-item" data-desc="Understand roles, industries and demand">
+                            <h4>Learn about industries, salaries, and typical roles</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Apprenticeships, T Levels, adult courses and more">
+                            <h4>Pick a training route - appenticeships, courses, and more</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item"
+                            data-desc="Guidance and support for school leavers and college-age learners">
+                            <h4>Discover dedicated support for 18-21 year olds</h4>
+                            <p>…</p>
+                        </a>
+
+                        <a href="#" class="mega-item"
+                            data-desc=" ">
+                            <h4> </h4>
+                            <p>…</p>
+                        </a>
+
+                        
+                        <a href="#" class="mega-item" data-desc="Careers Hub information and resources">
+                            <h4>Access support for schools and educators</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Support for parents and carers">
+                            <h4>Get help for parents and carers</h4>
+                            <p>…</p>
+                        </a>
+
+                          <a href="#" class="mega-item" data-desc="Support for businesses">
+                            <h4>For employers — Find skilled people or apprentices</h4>
+                            <p>…</p>
+                        </a>
+                    </div>
+                </template>
+            </li>
+            <!-- Find training and advice -->
+            <li data-menu="training">
+                <a href="#">Discover training and advice</a>
+                <template>
+                    <div class="mega-left">
+                        <h3>Discover training and advice</h3>
+                        <p>Access free career advice, coaching, courses and funding to take the next step in your career
+                        </p>
+                    </div>
+                    <div class="mega-grid">
+                        <a href="#" class="mega-item">
+                            <h4>Search for courses and training providers</h4>
+                            <p></p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Speak to a local advisor">
+                            <h4>Get 1-2-1 career advice and guidance</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Help with CVs, interviews, and applications">
+                            <h4>Request help with interviews, CVs, applications</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Tailored advice from Phoenix West">
+                            <h4>Access redundancy support</h4>
+                            <p>…</p>
+                        </a>
+                    </div>
+                </template>
+            </li>
+            <!-- Find opportunities -->
+            <li data-menu="opportunities">
+                <a href="#">Access job opportunities</a>
+                <template>
+                    <div class="mega-left">
+                        <h3>Access opportunities</h3>
+                        <p>Take the next step – discover jobs, placements and entry routes into work</p>
+                    </div>
+                    <div class="mega-grid">
+                        <a href="#" class="mega-item">
+                            <h4>Search for jobs and vacancies</h4>
+                            <p></p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Earn while you learn">
+                            <h4>Apply for apprenticeships</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Build skills through work experience">
+                            <h4>Find internships and placements</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item">
+                            <h4>Businesses - upskill your workforce</h4>
+                            <p></p>
+                        </a>
+                    </div>
+                </template>
+            </li>
+            <!-- Upskill or reskill -->
+            <li data-menu="upskill">
+                <a href="#">Upskill or reskill</a>
+                <template>
+                    <div class="mega-left">
+                        <h3>Upskill or reskill</h3>
+                        <p>Adapt, grow and move forward in your career</p>
+                    </div>
+                    <div class="mega-grid">
+                        <a href="#" class="mega-item">
+                            <h4>Search all courses and training providers</h4>
+                            <p></p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Skills Bootcamps to get you interview-ready">
+                            <h4>Fast track to an interview with Skills Bootcamps training</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Adult education and tailored courses">
+                            <h4>Retrain with flexible adult education learning</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Support from Future Bright to navigate change">
+                            <h4>Get coaching and mentoring from Future Bright</h4>
+                            <p>…</p>
+                        </a>
+                        
+                        <a href="#" class="mega-item" data-desc="Business support">
+                            <h4>Businesses - upskill your workforce</h4>
+                            <p></p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Free support for those affected by redundancy">
+                            <h4>Redundancy support – tailored advice from Phoenix West</h4>
+                            <p></p>
+                        </a>
+                    </div>
+                </template>
+            </li>
+            <!-- Stay supported -->
+            <li data-menu="supported">
+                <a href="#">Stay supported</a>
+                <template>
+                    <div class="mega-left">
+                        <h3>Stay supported</h3>
+                        <p>Look after your wellbeing and overcome barriers to learning and work</p>
+                    </div>
+                    <div class="mega-grid">
+                        <a href="#" class="mega-item" data-desc="Mental health, lifestyle and access needs">
+                            <h4>Find health and wellbeing support</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Extra support for those who need it">
+                            <h4>Access financial or personal help</h4>
+                            <p>…</p>
+                        </a>
+
+                                                <a href="#" class="mega-item" data-desc="Careers Hub information and resources">
+                            <h4>Find support for schools and educators</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Support for parents and carers">
+                            <h4>Get help for parents and carers</h4>
+                            <p>…</p>
+                        </a>
+
+                        <a href="#" class="mega-item">
+                            <h4>Redundancy support – tailored advice from Phoenix West</h4>
+                            <p></p>
+                        </a>
+                    </div>
+                </template>
+            </li>
+            <!-- Speak to us -->
+            <li data-menu="speak">
+                <a href="#">Speak to us</a>
+                <template>
+                    <div class="mega-left">
+                        <h3>Speak to us</h3>
+                        <p>Not sure where to start? Talk to our team or attend an event</p>
+                    </div>
+                    <div class="mega-grid">
+                        <a href="#" class="mega-item" data-desc="Use our referral form to get personalised support">
+                            <h4>Contact an advisor - general enquiry</h4>
+                            <p>…</p>
+                        </a>
+
+                        <a href="#" class="mega-item"
+                            data-desc="Speak to an advisor in B&NES, Bristol & South Gloucestershire">
+                            <h4>Speak to Us (B&NES, Bristol & South Gloucestershire)</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Speak to an advisor in North Somerset">
+                            <h4>Speak to an Advisor in North Somerset</h4>
+                            <p>…</p>
+                        </a>
+
+                         <a href="#" class="mega-item" data-desc="blank">
+                            
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Submit a resource for the directory">
+                            <h4>Submit a resource for the directory</h4>
+                            <p>…</p>
+                        </a>
+                        <a href="#" class="mega-item" data-desc="Submit an event">
+                            <h4>Submit an event</h4>
+                            <p>…</p>
+                        </a>
+                                          </div>
+                </template>
+            </li>
+        </ul>
+
+        <!-- single fixed container -->
+        <div class="mega-container">
+            <div class="mega-content"></div>
+        </div>
+
+
+    </nav>
+
+            <div class="body>
+            <div class="body-content"><h5>This version is the "lifelong learning" structure.</h5></div>
+        </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.querySelector('nav');
+            const items = nav.querySelectorAll('.main-nav li');
+            const container = nav.querySelector('.mega-container');
+            const content = container.querySelector('.mega-content');
+
+            // open/close logic
+            items.forEach(li => {
+                const a = li.querySelector('a');
+                a.addEventListener('click', e => {
+                    e.preventDefault();
+                    const isOpen = li.classList.toggle('open');
+                    // close others
+                    items.forEach(other => {
+                        if (other !== li) other.classList.remove('open');
+                    });
+                    if (isOpen) {
+                        content.innerHTML = li.querySelector('template').innerHTML;
+                        container.style.display = 'block';
+                        bindHoverSwap();
+                    } else {
+                        container.style.display = 'none';
+                    }
+                });
+            });
+
+            // click outside closes
+            document.addEventListener('click', e => {
+                if (!nav.contains(e.target)) {
+                    items.forEach(li => li.classList.remove('open'));
+                    container.style.display = 'none';
+                }
+            });
+
+            // dynamic left copy
+            function bindHoverSwap() {
+                const leftCopy = content.querySelector('.mega-left p');
+                const defaultTxt = leftCopy.textContent;
+                content.querySelectorAll('.mega-item[data-desc]').forEach(el => {
+                    const d = el.getAttribute('data-desc');
+                    ['mouseenter', 'focus'].forEach(evt =>
+                        el.addEventListener(evt, () => leftCopy.textContent = d)
+                    );
+                    ['mouseleave', 'blur'].forEach(evt =>
+                        el.addEventListener(evt, () => leftCopy.textContent = defaultTxt)
+                    );
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

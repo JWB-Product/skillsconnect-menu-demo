@@ -63,29 +63,60 @@
         a.appendChild(r);
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
   </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleBtn = document.getElementById('toggleRound1');
+      const content = document.getElementById('round1Content');
+      toggleBtn.addEventListener('click', function() {
+        const isVisible = content.style.display !== 'none';
+        content.style.display = isVisible ? 'none' : 'block';
+        toggleBtn.textContent = isVisible ? '▶ Expand' : '▼ Collapse';
+      });
+    });
+  </script>
 </head>
 <body>
   <header>
     <h1>Skills Connect menu structure test</h1>
     <p>
-      Choose your group below to complete the survey.
+      Explore the latest menu prototypes and user research.
     </p>
   </header>
- 
+
   <section class="link-blocks">
-    <a href="group-1.html">Group 1 – Complete Survey</a>
-    <a href="group-2.html">Group 2 – Complete Survey</a>
-    <a href="group-3.html">Group 3 – Complete Survey</a>
-	</section>
-	  <header>
-	<p>
-      Open the two different menu structures below.
-    </p>
-	</header>
-	
-	  <section class="link-blocks">
-    <a href="lifelong-learning.html" target="_blank" rel="noopener">Version A – Lifelong Learning Structure</a>
-    <a href="user-groups.html" target="_blank" rel="noopener">Version B – User Group Structure</a>
+    <a href="Round 2 Prototype/Round-2-Prototype.html" target="_blank" rel="noopener">Round 2 Prototype</a>
+  </section>
+
+  <header>
+    <h2>User testing round 1</h2>
+    <button id="toggleRound1" style="background-color: #f6f6f5; padding: 0.75em 1em; border: 1px solid #ccc; cursor: pointer; font-weight: 600; color: #13301B;">
+      ▶ Expand
+    </button>
+  </header>
+
+  <section id="round1Content" style="display: none;">
+    <header>
+      <p>
+        Choose your group below to complete the survey.
+      </p>
+    </header>
+    
+    <section class="link-blocks">
+      <a href="Round 1 user research/group-1.html">Group 1 – Complete Survey</a>
+      <a href="Round 1 user research/group-2.html">Group 2 – Complete Survey</a>
+      <a href="Round 1 user research/group-3.html">Group 3 – Complete Survey</a>
+    </section>
+
+    <header>
+      <p>
+        Open the two different menu structures below.
+      </p>
+    </header>
+    
+    <section class="link-blocks">
+      <a href="Round 1 user research/lifelong-learning.html" target="_blank" rel="noopener">Version A – Lifelong Learning Structure</a>
+      <a href="Round 1 user research/user-groups.html" target="_blank" rel="noopener">Version B – User Group Structure</a>
+    </section>
   </section>
 </body>
 </html>
